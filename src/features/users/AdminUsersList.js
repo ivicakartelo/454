@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { userDelete } from './usersSlice'
 
 const AdminUsersList = () => {
   const users = useSelector(state => state.users)
@@ -7,9 +8,13 @@ const AdminUsersList = () => {
       <th>{user.id}</th>
       <td>{user.username}</td>
       <td>Edit</td>
-      <td>Delete</td>
+      <td><button onClick={()=>userRemove(user.id)}>Delete</button></td>
     </tr>
   ))
+  const dispatch = useDispatch()
+  const userRemove = (id) => {
+    dispatch(userDelete({ id }));
+  }
 
 return (
   <section>
