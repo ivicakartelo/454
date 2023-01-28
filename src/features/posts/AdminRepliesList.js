@@ -3,20 +3,32 @@ import { useSelector } from 'react-redux'
 const AdminRepliesList = () => {
   const replies = useSelector(state => state.replies)
   .map(reply => (
-    <article key={reply.replyId}>
-      <h1>{reply.date}</h1>
-      <h3>{reply.author}</h3>
-      <p>{reply.reply}</p>
-      <div style={{ marginLeft: '50px', paddingBottom: '1rem' }}>
-      
-      </div>
-      
-    </article>
+    <tr key={reply.replyId}>  
+      <th>{reply.replyId}</th>
+      <td>{reply.comment}</td>
+      <td>{reply.date}</td>
+      <td>{reply.author}</td>
+      <td>{reply.reply}</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
   ))
 return (
   <section>
-    <h2>Replies:</h2>
-    {replies}    
+  <h2>Replies</h2>
+  <table border='1'>
+    <tr>
+      <th>replyId</th>
+      <th>commentId</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Content</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+      {replies} 
+  </table>
+       
   </section>
 )
 }

@@ -10,9 +10,7 @@ import { CommentsList } from './CommentsList'
 
 const SinglePostPage = () => {
   const params = useParams()
-
   const postId = params.postId
-
   const post = useSelector(state =>
     state.posts.find(post => post.id === postId)
   )

@@ -15,6 +15,7 @@ import AdminPostsList from "./features/posts/AdminPostsList"
 import AdminRepliesList from "./features/posts/AdminRepliesList"
 import AdminRepliesList1 from "./features/posts/AdminRepliesList1"
 import AdminUsersList from "./features/users/AdminUsersList"
+import EditPostForm from "./features/posts/EditPostForm"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,14 +35,13 @@ root.render(
           </>
         }
       />
-      <Route path=":postId" element={<SinglePostPage />} />
+    <Route path=":postId" element={<SinglePostPage />} />
     <Route path="admincomments" element={<AdminCommentsList />} />
     <Route path="adminposts" element={<AdminPostsList />} />
     <Route path="adminreplies" element={<AdminRepliesList />} />
     <Route path="adminreplies1" element={<AdminRepliesList1 />} />
     <Route path="adminusers" element={<AdminUsersList />} />
-    
-    
+    <Route path="editPost/:postId" element={<EditPostForm />} />
     </Route>
     </Routes>
   </BrowserRouter>

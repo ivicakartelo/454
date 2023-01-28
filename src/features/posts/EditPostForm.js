@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-
+import { useNavigate, useParams } from 'react-router-dom'
 import { postUpdated } from './postsSlice'
 
-export const EditPostForm = ({ match }) => {
-  const { postId } = match.params
+export const EditPostForm = () => {
+  const params = useParams()
+  const postId = params.postId
 
   const post = useSelector(state =>
     state.posts.find(post => post.id === postId)
@@ -15,8 +15,7 @@ export const EditPostForm = ({ match }) => {
   const [content, setContent] = useState(post.content)
 
   const dispatch = useDispatch()
-  const history = useHistory()
-  console.log(history)
+  const navigate = useNavigate()
 
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
@@ -24,7 +23,7 @@ export const EditPostForm = ({ match }) => {
   const onSavePostClicked = () => {
     if (title && content) {
       dispatch(postUpdated({ id: postId, title, content }))
-      history.push(`/posts/${postId}`)
+      navigate(`/adminposts`)
     }
   }
 
@@ -55,3 +54,4 @@ export const EditPostForm = ({ match }) => {
     </section>
   )
 }
+export default EditPostForm

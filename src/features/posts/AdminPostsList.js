@@ -18,23 +18,35 @@ const AdminPostsList = () => {
     }
 
   const renderedPosts = orderedPosts.map(post => (
-    <article key={post.id}>
-      <h3>{post.title}</h3>
-      <PostAuthor userId={post.user} />
-      <TimeAgo timestamp={post.date} />
-      <p>{post.content.substring(0, 100)}</p>
-      <ReactionButtons post={post} />
-      <Link to={`/${post.id}`}>
-        View post
-      </Link>
+    <tr key={post.id}>
+      <th>{post.id}</th>
+      <td>{post.user}</td>
+      <td>{post.title}</td>
+      <td>{post.date}</td>
+      <td>{post.content}</td>
+      <td><Link to={`/editPost/${post.id}`}>
+          Edit Post
+        </Link></td>
       <button onClick={()=>postRemove(post.id)}>Delete</button>
-    </article>
+    </tr>
   ))
 
 return (
   <section>
     <h2>Posts</h2>
-    {renderedPosts}    
+    <table border='1'>
+      <tr>
+        <th>Id</th>
+        <th>UserId</th>
+        <th>Title</th> 
+        <th>Date</th>
+        <th>Content</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      {renderedPosts}
+    </table>
+        
   </section>
 )
 }
