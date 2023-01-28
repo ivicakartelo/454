@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux'
-import { AddReplyForm } from './AddReplyForm'
-import { RepliesList } from './RepliesList'
+import { useSelector, useDispatch } from 'react-redux'
+import { commentDelete } from '../comments/commentsSlice'
 
 const AdminCommentsList = () => {
   const comments = useSelector(state => state.comments)
@@ -13,9 +12,15 @@ const AdminCommentsList = () => {
       <td>{comment.author}</td>
       <td>{comment.comment}</td>
       <td>Edit</td>
-      <td>Delete</td>
+      <td><button onClick={()=>commentRemove(comment.commentId)}>Delete</button></td>
     </tr>
   ))
+  const dispatch = useDispatch()
+  const commentRemove = (commentId) => {
+    dispatch(commentDelete({ commentId }));
+  }
+
+
 return (
   <section>
     <h2>Comments</h2>
@@ -29,6 +34,7 @@ return (
         <th>Comment</th>
         <th>Edit</th>
         <th>Delete</th>
+        
       </tr>
       {comments}
     </table>  

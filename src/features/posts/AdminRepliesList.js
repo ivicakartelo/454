@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { replyDelete } from '../replies/repliesSlice'
 
 const AdminRepliesList = () => {
   const replies = useSelector(state => state.replies)
@@ -10,9 +11,14 @@ const AdminRepliesList = () => {
       <td>{reply.author}</td>
       <td>{reply.reply}</td>
       <td>Edit</td>
-      <td>Delete</td>
+      <td><button onClick={()=>replyRemove(reply.replyId)}>Delete</button></td>
     </tr>
   ))
+  const dispatch = useDispatch()
+  const replyRemove = (replyId) => {
+        dispatch(replyDelete({ replyId }));
+  }
+
 return (
   <section>
   <h2>Replies</h2>

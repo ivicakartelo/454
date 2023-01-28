@@ -1,8 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { PostAuthor } from './PostAuthor'
-import { TimeAgo } from './TimeAgo'
-import { ReactionButtons } from './ReactionButtons'
 import { postDelete } from './postsSlice'
 
 const AdminPostsList = () => {
@@ -27,7 +24,7 @@ const AdminPostsList = () => {
       <td><Link to={`/editPost/${post.id}`}>
           Edit Post
         </Link></td>
-      <button onClick={()=>postRemove(post.id)}>Delete</button>
+      <td><button onClick={()=>postRemove(post.id)}>Delete</button></td>
     </tr>
   ))
 

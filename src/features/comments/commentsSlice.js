@@ -42,8 +42,15 @@ const commentsSlice = createSlice({
       }
     },
   },
+  commentDelete(state, action) {
+    const { commentId } = action.payload
+    const existingComment = state.find(comment => comment.commentId === commentId)
+    if(existingComment) {
+      return state.filter(comment => comment.commentId !== commentId)
+    }
+  }
 }})
 
-export const { commentAdded } = commentsSlice.actions
+export const { commentAdded, commentDelete } = commentsSlice.actions
 
 export default commentsSlice.reducer
