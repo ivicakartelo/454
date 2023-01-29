@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { commentDelete } from '../comments/commentsSlice'
+import { Link } from 'react-router-dom'
 
 const AdminCommentsList = () => {
   const comments = useSelector(state => state.comments)
@@ -11,7 +12,9 @@ const AdminCommentsList = () => {
       <td>{comment.rating}</td>
       <td>{comment.author}</td>
       <td>{comment.comment}</td>
-      <td>Edit</td>
+      <td><Link to={`/editComment/${comment.commentId}`}>
+          Edit comment
+        </Link></td>
       <td><button onClick={()=>commentRemove(comment.commentId)}>Delete</button></td>
     </tr>
   ))
