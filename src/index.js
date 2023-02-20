@@ -17,6 +17,10 @@ import AdminRepliesList1 from "./features/posts/AdminRepliesList1"
 import AdminUsersList from "./features/users/AdminUsersList"
 import EditPostForm from "./features/posts/EditPostForm"
 import EditCommentForm from "./features/posts/EditCommentForm"
+import EditReplyForm from "./features/posts/EditReplyForm"
+import EditReply1Form from "./features/posts/EditReply1Form"
+import EditUserForm from "./features/users/EditUserForm"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,6 +48,9 @@ root.render(
     <Route path="adminusers" element={<AdminUsersList />} />
     <Route path="editPost/:postId" element={<EditPostForm />} />
     <Route path="editComment/:commentId" element={<EditCommentForm />} />
+    <Route path="editReply/:replyId" element={<EditReplyForm />} />
+    <Route path="editReply1/:reply1Id" element={<EditReply1Form />} />
+    <Route path="editUser/:id" element={<EditUserForm />} />
     </Route>
     </Routes>
   </BrowserRouter>

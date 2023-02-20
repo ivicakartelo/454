@@ -44,9 +44,18 @@ const replies1Slice = createSlice({
     if(existingReply1) {
       return state.filter(reply1 => reply1.reply1Id !== reply1Id)
     }
+  },
+  reply1Updated(state, action) {
+    const { reply1Id, author, reply1 } = action.payload
+    const existingReply1 = state.find((reply1) => reply1.reply1Id === reply1Id)
+    if (existingReply1) {
+      
+      existingReply1.author = author
+      existingReply1.reply1 = reply1
+    }
   }
 }})
 
-export const { reply1Added,  reply1Delete } = replies1Slice.actions
+export const { reply1Added,  reply1Delete, reply1Updated } = replies1Slice.actions
 
 export default replies1Slice.reducer

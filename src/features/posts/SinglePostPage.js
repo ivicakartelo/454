@@ -6,8 +6,6 @@ import { ReactionButtons } from './ReactionButtons'
 import { AddCommentForm } from './AddCommentForm'
 import { CommentsList } from './CommentsList'
 
-
-
 const SinglePostPage = () => {
   const params = useParams()
   const postId = params.postId

@@ -30,9 +30,16 @@ const usersSlice = createSlice({
       if(existingUser) {
         return state.filter(user => user.id !== id)
       }
+    },
+    userUpdated(state, action) {
+      const { id, username } = action.payload
+      const existingUser = state.find((user) => user.id === id)
+      if (existingUser) {
+        existingUser.username = username
+      }
     }
   },
 })
 
-export const { userAdded, userDelete } = usersSlice.actions
+export const { userAdded, userDelete, userUpdated } = usersSlice.actions
 export default usersSlice.reducer

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { reply1Delete } from '../replies1/replies1Slice'
+import { Link } from 'react-router-dom'
 
 const AdminReplies1List = () => {
   const replies1 = useSelector(state => state.replies1)
@@ -10,7 +11,9 @@ const AdminReplies1List = () => {
       <td>{reply1.date}</td>
       <td>{reply1.author}</td>
       <td>{reply1.reply1}</td>
-      <td>Edit</td>
+      <td><Link to={`/editReply1/${reply1.reply1Id}`}>
+          Edit reply1
+        </Link></td>
       <td><button onClick={()=>reply1Remove(reply1.reply1Id)}>Delete</button></td>
     </tr>
   ))
