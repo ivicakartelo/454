@@ -32,6 +32,7 @@ return (
   <section>
     <h2>Posts</h2>
     <table border='1'>
+    <thead>
       <tr>
         <th>Id</th>
         <th>UserId</th>
@@ -41,7 +42,11 @@ return (
         <th>Edit</th>
         <th>Delete</th>
       </tr>
-      {renderedPosts}
+      </thead>
+      <tbody>
+        {renderedPosts}
+      </tbody>
+      
     </table>
         
   </section>

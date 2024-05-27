@@ -6,7 +6,9 @@ import { ReactionButtons } from './ReactionButtons'
 import { postDelete } from './postsSlice'
 
 const PostsList = () => {
+  console.log("PostsList rendered")
   const posts = useSelector(state => state.posts)
+  console.log(posts)
   const dispatch = useDispatch();
   // Sort posts in reverse chronological order by datetime string
   const orderedPosts = posts

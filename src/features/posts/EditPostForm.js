@@ -20,13 +20,12 @@ export const EditPostForm = () => {
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
 
-  const onSavePostClicked = () => {
+  function onSavePostClicked() {
     if (title && content) {
       dispatch(postUpdated({ id: postId, title, content }))
       navigate(`/adminposts`)
     }
   }
-
   return (
     <section>
       <h2>Edit Post</h2>

@@ -1,4 +1,6 @@
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import {createRoot} from 'react-dom/client'
+//import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
@@ -22,10 +24,10 @@ import EditReply1Form from "./features/posts/EditReply1Form"
 import EditUserForm from "./features/users/EditUserForm"
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
   
-    <Provider store={store}>
+  <Provider store={store}>
 
   <BrowserRouter>
     <Routes>
