@@ -37,6 +37,7 @@ import { postAdded } from './postsSlice'
       <form>
         <label htmlFor="postTitle">Post Title:</label>
         <input
+          id="postTitle"
           type="text"
           value={title}
           onChange={onTitleChanged}
@@ -51,6 +52,7 @@ import { postAdded } from './postsSlice'
         
         <label htmlFor="postContent"><p>Content:</p></label>
         <textarea
+          id="postContent"
           value={content}
           onChange={onContentChanged}
         />

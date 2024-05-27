@@ -26,6 +26,7 @@ return (
   <section>
   <h2>Replies</h2>
   <table border='1'>
+  <thead>
     <tr>
       <th>replyId</th>
       <th>commentId</th>
@@ -35,7 +36,10 @@ return (
       <th>Edit</th>
       <th>Delete</th>
     </tr>
+    </thead>
+    <tbody>
       {replies} 
+    </tbody>
   </table>
        
   </section>

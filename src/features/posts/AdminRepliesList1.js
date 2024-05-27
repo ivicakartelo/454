@@ -26,6 +26,7 @@ return (
   <section>
     <h2>Replies1</h2>
     <table border='1'>
+    <thead>
     <tr>
     <th>Replay1Id</th>
     <th>ReplayId</th>
@@ -35,7 +36,10 @@ return (
         <th>Edit</th>
         <th>Delete</th>
       </tr>
-    {replies1}
+      </thead>
+      <tbody>
+        {replies1}
+      </tbody>
     </table>  
   </section>
 )

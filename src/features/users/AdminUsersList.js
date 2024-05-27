@@ -23,13 +23,17 @@ return (
   <section>
     <h2>Users</h2>
   <table border='1'>
+    <thead>
     <tr>
       <th>Id</th>
       <th>Author</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
-    {users} 
+    </thead>
+    <tbody>
+      {users}
+    </tbody> 
   </table>   
   </section>
 )

@@ -1,5 +1,5 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
-import { sub } from 'date-fns'
+import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { sub } from 'date-fns';
 
 const initialState = [
   {
@@ -32,7 +32,7 @@ const initialState = [
       eyes: 0,
     },
   },
-]
+];
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -40,7 +40,7 @@ const postsSlice = createSlice({
   reducers: {
     postAdded: {
       reducer(state, action) {
-        state.push(action.payload)
+        state.push(action.payload); // Immer handles immutability here
       },
       prepare(title, content, userId) {
         return {
@@ -59,34 +59,30 @@ const postsSlice = createSlice({
               eyes: 0,
             },
           },
-        }
+        };
       },
     },
     reactionAdded(state, action) {
-      const { postId, reaction } = action.payload
-      const existingPost = state.find((post) => post.id === postId)
+      const { postId, reaction } = action.payload;
+      const existingPost = state.find((post) => post.id === postId);
       if (existingPost) {
-        existingPost.reactions[reaction]++
+        existingPost.reactions[reaction]++; // Immer handles immutability here
       }
     },
     postUpdated(state, action) {
-      const { id, title, content } = action.payload
-      const existingPost = state.find((post) => post.id === id)
+      const { id, title, content } = action.payload;
+      const existingPost = state.find((post) => post.id === id);
       if (existingPost) {
-        existingPost.title = title
-        existingPost.content = content
+        existingPost.title = title; // Immer handles immutability here
+        existingPost.content = content; // Immer handles immutability here
       }
     },
     postDelete(state, action) {
-      const { id } = action.payload
-      const existingPost = state.find(post => post.id === id)
-      if(existingPost) {
-        return state.filter(post => post.id !== id)
-      }
-    }
+      const { id } = action.payload;
+      return state.filter(post => post.id !== id); // Returns a new state array
+    },
   },
-})
+});
 
-export const { postAdded, postUpdated, reactionAdded, postDelete } = postsSlice.actions
-
-export default postsSlice.reducer
+export const { postAdded, postUpdated, reactionAdded, postDelete } = postsSlice.actions;
+export default postsSlice.reducer;
