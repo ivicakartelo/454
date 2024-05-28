@@ -11,7 +11,7 @@ const reactionEmoji = {
   eyes: '👀',
 }
 
-export const ReactionButtons = ({ post }) => {
+export const ReactionButtons = React.memo(({ post }) => {
   const dispatch = useDispatch()
   console.log("ReactionButtons rendered")
   console.log(Object.entries(reactionEmoji))
@@ -31,4 +31,6 @@ export const ReactionButtons = ({ post }) => {
   })
 
   return <div>{reactionButtons}</div>
+
 }
+)
