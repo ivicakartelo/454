@@ -23,7 +23,7 @@ export const EditPostForm = () => {
   function onSavePostClicked() {
     if (title && content) {
       dispatch(postUpdated({ id: postId, title, content }))
-      navigate(`/adminposts`)
+      navigate(`/`)
     }
   }
   return (

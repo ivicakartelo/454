@@ -14,7 +14,6 @@ const reactionEmoji = {
 export const ReactionButtons = React.memo(({ post }) => {
   const dispatch = useDispatch()
   console.log("ReactionButtons rendered")
-  console.log(Object.entries(reactionEmoji))
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
